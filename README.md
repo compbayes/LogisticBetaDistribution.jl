@@ -2,9 +2,9 @@
 
 
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://mattiasvillani.com/LogisticBetaDistribution.jl/dev/home/)
-[![Build Status](https://github.com/mattiasvillani/LogisticBetaDistribution.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/mattiasvillani/LogisticBetaDistribution.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/mattiasvillani/LogisticBetaDistribution.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/mattiasvillani/LogisticBetaDistribution.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://compbayes.com/LogisticBetaDistribution.jl/dev/home/)
+[![Build Status](https://github.com/compbayes/LogisticBetaDistribution.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/compbayes/LogisticBetaDistribution.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Coverage](https://codecov.io/gh/compbayes/LogisticBetaDistribution.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/compbayes/LogisticBetaDistribution.jl)
 
 ## Description
 
@@ -13,7 +13,7 @@ Julia implementation of the Logistic Beta distribution, also called [Type IV Gen
 ## Installation
 Install from the Julia package manager (via Github) by typing `]` in the Julia REPL:
 ```
-] add git@github.com:mattiasvillani/LogisticBetaDistribution.jl.git
+] add git@github.com:compbayes/LogisticBetaDistribution.jl.git
 ```
 
 ## Example
