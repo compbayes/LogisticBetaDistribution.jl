@@ -8,7 +8,7 @@
 
 ## Description
 
-Julia implementation of the Logistic Beta distribution, also called [Type IV Generalized logistic distribution](https://en.wikipedia.org/wiki/Generalized_logistic_distribution#Type_IV).<br>It is defined as the distribution of the random variable `log(Y/(1-Y))`, where `Y ~ Beta(α,β)`.<br>The implementation follows the Distribution.jl interface.
+Julia implementation of the Logistic Beta distribution, also called [Type IV Generalized logistic distribution](https://en.wikipedia.org/wiki/Generalized_logistic_distribution#Type_IV) or the Fisher Z-distribution.<br>It is defined as the distribution of the random variable `log(Y/(1-Y))`, where `Y ~ Beta(α,β)`.<br>The implementation follows the Distribution.jl interface.
 
 ## Installation
 Install from the Julia package manager (via Github) by typing `]` in the Julia REPL:
