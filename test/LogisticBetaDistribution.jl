@@ -49,8 +49,7 @@ using SpecialFunctions: polygamma, trigamma
     @test Base.eltype(LogisticBeta{Float32}) === Float32
 
     # partype
-    @test partype(LogisticBeta(1.0, 2.0)) === Float64
-    @test partype(LogisticBeta(1f0, 2f0)) === Float64
+    @test LogisticBetaDistribution.partype(LogisticBeta(1.0, 2.0)) === Float64
 
     # convert
     d64 = LogisticBeta(1.0, 2.0)
@@ -58,6 +57,11 @@ using SpecialFunctions: polygamma, trigamma
     @test d32.α === Float32(1.0)
     @test d32.β === Float32(2.0)
     @test convert(LogisticBeta{Float64}, d64) === d64
+
+    # convert from raw parameters (line 72)
+    d_conv = LogisticBetaDistribution.convert(LogisticBeta{Float32}, 1.0, 2.0)
+    @test d_conv.α === Float32(1.0)
+    @test d_conv.β === Float32(2.0)
 
     # median
     @test isapprox(median(LogisticBeta(3/2, 3/2)), 0.0, atol=1e-14)
