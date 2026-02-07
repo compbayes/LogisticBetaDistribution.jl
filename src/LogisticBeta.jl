@@ -152,4 +152,4 @@ skewness(d::LogisticBeta)
 
 Compute the skewness of the logistic-beta distribution `d`. 
 """ 
-skewness(d::LogisticBeta) = (polygamma(2, d.α) - polygamma(2, d.β))/(var(d::LogisticBeta)^3)
+skewness(d::LogisticBeta) = (polygamma(2, d.α) - polygamma(2, d.β))/(var(d::LogisticBeta)^(3/2))
