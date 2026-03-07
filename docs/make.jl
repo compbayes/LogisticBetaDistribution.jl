@@ -18,7 +18,7 @@ makedocs(;
     authors="Mattias Villani",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://mattiasvillani.github.io/LogisticBetaDistribution.jl",
+        canonical="https://compbayes.github.io/LogisticBetaDistribution.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -30,5 +30,5 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/mattiasvillani/LogisticBetaDistribution.jl",
+    repo="github.com/compbayes/LogisticBetaDistribution.jl",
 )
