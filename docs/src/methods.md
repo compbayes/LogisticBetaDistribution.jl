@@ -11,4 +11,5 @@ mode
 var
 std
 skewness
+kurtosis
 ```
