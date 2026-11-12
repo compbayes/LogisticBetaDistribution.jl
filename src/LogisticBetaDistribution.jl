@@ -10,9 +10,10 @@ using Distributions, SpecialFunctions, LogExpFunctions
 
 include("LogisticBeta.jl")
 
-export mean, median, quantile, std, var, mode, params, params!, rand, rand!, skewness
+export mean, median, quantile, std, var, mode, params, rand, rand!, skewness
 export kurtosis
-export pdf, cdf, logpdf, logcdf
+export pdf, cdf, ccdf, logpdf, logcdf, gradlogpdf
+export entropy, mgf, cgf
 export LogisticBeta
 
 end # End module
