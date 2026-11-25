@@ -158,4 +158,15 @@ using Random
     end
     @test isapprox(gradlogpdf(d_asym, mode(d_asym)), 0.0, atol=1e-12)
 
+    # quantile stays finite and accurate when the Beta quantile is extremely close to 0 or 1
+    # (small shape parameters, or p close to 0 or 1)
+    @test isfinite(quantile(LogisticBeta(0.2, 0.05), 0.9))
+    for (a, b) in ((0.2, 0.05), (0.05, 0.2), (0.5, 0.5), (2.0, 3.0))
+        dq = LogisticBeta(a, b)
+        for p in (1e-10, 0.1, 0.5, 0.9, 0.999999, 1 - 1e-10)
+            @test cdf(dq, quantile(dq, p)) ≈ p
+            @test quantile(dq, p) ≈ -quantile(LogisticBeta(b, a), 1 - p) # X ~ LB(α,β) ⇒ -X ~ LB(β,α)
+        end
+    end
+
 end
