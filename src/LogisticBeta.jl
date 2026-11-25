@@ -6,7 +6,7 @@ import Base.rand
 """ 
     LogisticBeta(α, β) 
 
-The Logistic-Beta distribution, also known Generalized Logistic distribution of Type IV.
+The Logistic-Beta distribution, also known as the Generalized Logistic distribution of Type IV.
 
 ```math
 f(x) = \\frac{1}{\\mathrm{B}(\\alpha,\\beta)} 
@@ -134,56 +134,56 @@ ccdf(d::LogisticBeta, x::Real) = beta_inc(d.α, d.β, logistic(x), logistic(-x))
 
 
 """ 
-quantile(d::LogisticBeta, p::Real) 
+    quantile(d::LogisticBeta, p::Real) 
 
 Compute the `p`-quantile of the logistic-beta distribution `d`. 
 """
 quantile(d::LogisticBeta, p::Real) = logit(quantile(Beta(d.α, d.β), p))
 
 """ 
-mean(d::LogisticBeta) 
+    mean(d::LogisticBeta) 
 
 Compute the mean of the logistic-beta distribution `d`. 
 """
 mean(d::LogisticBeta) = digamma(d.α) - digamma(d.β)
 
 """ 
-mode(d::LogisticBeta) 
+    mode(d::LogisticBeta) 
 
 Compute the mode of the logistic-beta distribution `d`. 
 """
 mode(d::LogisticBeta) = log(d.α / d.β)
 
 """ 
-var(d::LogisticBeta) 
+    var(d::LogisticBeta) 
 
 Compute the variance of the logistic-beta distribution `d`. 
 """
 var(d::LogisticBeta) = trigamma(d.α) + trigamma(d.β)
 
 """ 
-std(d::LogisticBeta) 
+    std(d::LogisticBeta) 
 
 Compute the standard deviation of the logistic-beta distribution `d`. 
 """
 std(d::LogisticBeta) = sqrt(var(d))
 
 """ 
-skewness(d::LogisticBeta) 
+    skewness(d::LogisticBeta) 
 
 Compute the skewness of the logistic-beta distribution `d`. 
 """
 skewness(d::LogisticBeta) = (polygamma(2, d.α) - polygamma(2, d.β)) / var(d)^(3 / 2)
 
 """ 
-kurtosis(d::LogisticBeta) 
+    kurtosis(d::LogisticBeta) 
 
 Compute the excess kurtosis of the logistic-beta distribution `d`. 
 """
 kurtosis(d::LogisticBeta) = (polygamma(3, d.α) + polygamma(3, d.β)) / var(d)^2
 
 """
-entropy(d::LogisticBeta)
+    entropy(d::LogisticBeta)
 
 Compute the entropy of the logistic-beta distribution `d`. 
 """
