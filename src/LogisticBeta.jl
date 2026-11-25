@@ -166,21 +166,21 @@ std(d::LogisticBeta)
 
 Compute the standard deviation of the logistic-beta distribution `d`. 
 """
-std(d::LogisticBeta) = sqrt(trigamma(d.α) + trigamma(d.β))
+std(d::LogisticBeta) = sqrt(var(d))
 
 """ 
 skewness(d::LogisticBeta) 
 
 Compute the skewness of the logistic-beta distribution `d`. 
 """
-skewness(d::LogisticBeta) = (polygamma(2, d.α) - polygamma(2, d.β)) / (var(d::LogisticBeta)^(3 / 2))
+skewness(d::LogisticBeta) = (polygamma(2, d.α) - polygamma(2, d.β)) / var(d)^(3 / 2)
 
 """ 
 kurtosis(d::LogisticBeta) 
 
 Compute the excess kurtosis of the logistic-beta distribution `d`. 
 """
-kurtosis(d::LogisticBeta) = (polygamma(3, d.α) + polygamma(3, d.β)) / (var(d::LogisticBeta)^2)
+kurtosis(d::LogisticBeta) = (polygamma(3, d.α) + polygamma(3, d.β)) / var(d)^2
 
 """
 entropy(d::LogisticBeta)
