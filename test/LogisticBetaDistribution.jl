@@ -164,8 +164,16 @@ using Random
     for (a, b) in ((0.2, 0.05), (0.05, 0.2), (0.5, 0.5), (2.0, 3.0))
         dq = LogisticBeta(a, b)
         for p in (1e-10, 0.1, 0.5, 0.9, 0.999999, 1 - 1e-10)
-            @test cdf(dq, quantile(dq, p)) ≈ p
-            @test quantile(dq, p) ≈ -quantile(LogisticBeta(b, a), 1 - p) # X ~ LB(α,β) ⇒ -X ~ LB(β,α)
+            if (a, b, p) == (0.05, 0.2, 1e-10)
+                # Known upstream inaccuracy: beta_inc_inv (SpecialFunctions) is inaccurate this
+                # far into the lower tail when α is tiny. It returns log(y) ≈ -359, while the
+                # leading tail term y^α / (α B(α, β)) = p gives log(y) ≈ -456; cdf is correct.
+                @test_broken cdf(dq, quantile(dq, p)) ≈ p
+            else
+                @test cdf(dq, quantile(dq, p)) ≈ p
+            end
+            # X ~ LB(α,β) ⇒ -X ~ LB(β,α); atol needed since the quantile can be exactly 0
+            @test isapprox(quantile(dq, p), -quantile(LogisticBeta(b, a), 1 - p); rtol=1e-8, atol=1e-12)
         end
     end
 
