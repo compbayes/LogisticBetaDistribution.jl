@@ -138,7 +138,12 @@ quantile(d::LogisticBeta, p::Real)
 
 Compute the `p`-quantile of the logistic-beta distribution `d`. 
 """
-quantile(d::LogisticBeta, p::Real) = logit(quantile(Beta(d.α, d.β), p))
+function quantile(d::LogisticBeta, p::Real)
+    # X = logit(Y) = log(Y) - log(1-Y) with Y ~ Beta(α, β). beta_inc_inv returns both
+    # Y and 1-Y accurately, so X stays finite even when Y rounds to 0 or 1.
+    y, ycomp = beta_inc_inv(d.α, d.β, p)
+    return log(y) - log(ycomp)
+end
 
 """ 
 mean(d::LogisticBeta) 
